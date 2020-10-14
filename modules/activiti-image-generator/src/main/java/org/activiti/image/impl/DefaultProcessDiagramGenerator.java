@@ -663,7 +663,10 @@ public class DefaultProcessDiagramGenerator implements ProcessDiagramGenerator {
         GraphicInfo labelGraphicInfo = bpmnModel.getLabelGraphicInfo(sequenceFlow.getId());
         if (labelGraphicInfo != null) {
           processDiagramCanvas.drawLabel(sequenceFlow.getName(), labelGraphicInfo, false);
-        }
+        } else {
+	  GraphicInfo lineCenterGraphicInfo = getLineCenter(graphicInfoList);
+	  processDiagramCanvas.drawLabel(sequenceFlow.getName(), lineCenterGraphicInfo, false);
+	}
       }
     }
 
